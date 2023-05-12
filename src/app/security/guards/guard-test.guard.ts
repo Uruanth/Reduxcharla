@@ -15,6 +15,8 @@ export class GuardTestGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.select("loger", "isLoged");
+
   }
+
   
 }
