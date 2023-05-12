@@ -1,0 +1,9 @@
+<nz-spin [nzSpinning]='cagando | async' nzTip="Loading...">
+  <app-login *ngIf="!isLogeado"></app-login>
+</nz-spin>
+<div *ngIf="isLogeado">
+  <app-header></app-header>
+  <app-tabla-a></app-tabla-a>
+  <app-tabla-b></app-tabla-b>
+  <app-tabla-c></app-tabla-c>
+</div>
