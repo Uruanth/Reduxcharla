@@ -1,19 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {TablaAComponent} from "./shared/tabla-a/tabla-a.component";
-import {GuardTestGuard} from "./security/guards/guard-test.guard";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-  {
-    path: 'tabla',
-    component: TablaAComponent,
-    canActivate: [GuardTestGuard]
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
