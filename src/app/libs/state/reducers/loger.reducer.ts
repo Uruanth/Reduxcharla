@@ -6,6 +6,7 @@ const initialState: modelos.LogerModel = {
   isLoged: false
 }
 
+
 export const LogerReducer = createReducer(
   initialState,
   on(acciones.isLoged, state => ({...state, isLoged: true}))

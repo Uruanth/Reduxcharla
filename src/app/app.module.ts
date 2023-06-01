@@ -14,8 +14,7 @@ import { TablaBComponent } from './shared/tabla-b/tabla-b.component';
 import { TablaCComponent } from './shared/tabla-c/tabla-c.component';
 
 import {appState} from "./libs/state/AppState";
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { es_ES } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -24,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzSpinModule} from "ng-zorro-antd/spin";
 import {NzButtonModule} from "ng-zorro-antd/button";
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffect } from './libs/state/effects/login.effect';
 
 registerLocaleData(es);
 
@@ -48,7 +49,8 @@ registerLocaleData(es);
     ReactiveFormsModule,
     NzFormModule,
     NzSpinModule,
-    NzButtonModule
+    NzButtonModule,
+    EffectsModule.forRoot([LoginEffect])
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }

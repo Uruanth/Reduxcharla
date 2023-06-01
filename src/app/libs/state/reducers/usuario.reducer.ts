@@ -17,6 +17,7 @@ export const usuarioReducer = createReducer(
     loading: true
   })),
   on(actions.loginExito, (state, {usuario}) => ({
+    ...state,
     nombre: usuario.nombre,
     permisos: usuario.permission,
     id: usuario.dni,
@@ -32,3 +33,4 @@ export const usuarioReducer = createReducer(
     error
   }))
 )
+
