@@ -1,35 +1,70 @@
-import * as userRed from './usuario.reducer';
+import { reduce } from "rxjs";
+import * as userReducer from "./usuario.reducer";
 
-describe('Usuario reducer', () => {
-  const {initialState} = userRed;
+describe("ReducerUsurio", () => {
+  const { initialState } = userReducer;
 
-  it('should return initialState', ()=>{
+  it("probando estado inicial", () => {
     const action = {
-      type: 'unknow'
+      type: "unknow",
     };
-    const state = userRed.usuarioReducer(initialState, action);
-    expect(state).toEqual(initialState);
+
+    const state = userReducer.usuarioReducer(initialState, action);
+    expect(state).toBe(initialState);
   });
 
-  it('should return usuario logeado', ()=>{
-    const usuario = {
-      nombre: 'string',
-      dni: 'string',
-      permission: [],
-      rol: 'string'
-    }
+  it("probando estado login", () => {
     const action = {
-      type:'[LOGIN] -> Logeo exitoso',
-      usuario
+      type: "[LOGIN] -> Logear usuario",
     };
-    const state = userRed.usuarioReducer(initialState, action);
+
+    const state = userReducer.usuarioReducer(initialState, action);
     expect(state).toEqual({
+      ...initialState,
+      loading: true,
+    });
+  });
+
+  it("probando estado login exito", () => {
+    const usuario = {
+      nombre: "string",
+      dni: "string",
+      permission: [],
+      rol: "string",
+    };
+
+    const action = {
+      type: "[LOGIN] -> Logeo exitoso",
+      usuario,
+    };
+
+    const state = userReducer.usuarioReducer(initialState, action);
+    expect(state).toEqual({
+      ...initialState,
       nombre: usuario.nombre,
       permisos: usuario.permission,
       id: usuario.dni,
       loading: false,
-      error: undefined
+      error: undefined,
     });
   });
 
+  it("probando estado login error", () => {
+    const error = "Error test";
+
+    const action = {
+      type: "[LOGIN] -> Logeo fallido",
+      error,
+    };
+
+    const state = userReducer.usuarioReducer(initialState, action);
+    expect(state).toEqual({
+      ...initialState,
+      loading: false,
+      id: "",
+      nombre: "",
+      permisos: [],
+      error,
+    });
+  });
 });

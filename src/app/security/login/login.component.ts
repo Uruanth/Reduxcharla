@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
+import {FormGroup, UntypedFormBuilder, Validators} from "@angular/forms";
 import * as acciones from '../../libs/state/actions/index'
-import * as modelos from '../../libs/models/index'
 import {Store} from "@ngrx/store";
-import {AppState} from "../../libs/state/AppState";
+import * as modelos from '../../libs/models/index'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,11 +14,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: UntypedFormBuilder,
-    private store: Store<AppState>
+    private store: Store<modelos.AppState>
     ) {
   }
 
   ngOnInit(): void {
+
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],
@@ -43,4 +44,11 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+
+public acciones():void{
+  this.store.dispatch(acciones.login({
+    username: 'test',
+    password: 'test'
+  }))
+}
 }

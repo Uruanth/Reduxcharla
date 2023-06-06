@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Store} from "@ngrx/store";
-import {AppState} from "../../libs/state/AppState";
 import {of, Subscription} from "rxjs";
+import { AppState } from 'src/app/libs/models';
 
 @Component({
   selector: 'app-home',

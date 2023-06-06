@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzSpinModule} from "ng-zorro-antd/spin";
 import {NzButtonModule} from "ng-zorro-antd/button";
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffect } from './libs/state/effects/login.effect';
 
 registerLocaleData(es);
 
@@ -47,7 +49,8 @@ registerLocaleData(es);
     ReactiveFormsModule,
     NzFormModule,
     NzSpinModule,
-    NzButtonModule
+    NzButtonModule,
+    EffectsModule.forRoot([LoginEffect])
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }
