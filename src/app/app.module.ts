@@ -14,8 +14,7 @@ import { TablaBComponent } from './shared/tabla-b/tabla-b.component';
 import { TablaCComponent } from './shared/tabla-c/tabla-c.component';
 
 import {appState} from "./libs/state/AppState";
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { es_ES } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
